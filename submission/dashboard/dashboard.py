@@ -3,13 +3,15 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
+import os
 
 st.set_page_config(page_title="Dashboard Analisis Penyewaan Sepeda", layout="wide")
 
 # Meng load data
 @st.cache_data
 def load_data():
-    file_path = "dashboard/df_day.csv"
+    # file_path = "dashboard/df_day.csv"
+    file_path = os.path.join(os.path.dirname(__file__), "df_day.csv")
     try:
         df = pd.read_csv(file_path)
         return df
